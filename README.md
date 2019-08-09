@@ -1,24 +1,28 @@
 # React Native Speedometer Chart
+Speedometer Chart component for React Native, with small tweaks made so that the percentage label can be overriden with any desired string.
+
+## Link to Original "React Native Speedometer Chart" NPM
 [![npm version](https://badge.fury.io/js/react-native-speedometer-chart.svg)](https://badge.fury.io/js/react-native-speedometer-chart) [![npm downloads](https://img.shields.io/npm/dt/react-native-speedometer-chart.svg)](https://npm-stat.com/charts.html?package=react-native-speedometer-chart)  
 [![NPM](https://nodei.co/npm/react-native-speedometer-chart.png?downloads=true)](https://nodei.co/npm/react-native-speedometer-chart/)
 ---
-Speedometer Chart component for React Native
 
 ## Installation
 
 ```
-npm install --save react-native-speedometer-chart
+npm install --save git+https://github.com/IntraGrainTechnologies/react-native-speedometer-chart.git
 ```
 ```
-yarn add react-native-speedometer-chart
+yarn add https://github.com/IntraGrainTechnologies/react-native-speedometer-chart
 ```
-
-## Try it out
-You can try out the [Speedometer Chart Example
-](https://expo.io/@lucasmonteiro1/speedometer-chart-example) app to get a tease of the functionalities of this lib.
-
 
 ## Props
+
+### New Props
+| Prop | Default | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| percentOverride | none | string | no | String to display in place of percentage (requires `showPercent` = `TRUE`) |
+
+### Original Props
 | Prop | Default | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | value | none | number | `yes` | Value to be painted |

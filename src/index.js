@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import { getStyles } from './rules';
 
 const Speedometer = (props) => {
-  const { value, totalValue, style, innerCircleStyle, outerCircleStyle, halfCircleStyle, showText, text, textStyle, showLabels, labelStyle, showPercent, percentStyle, showIndicator } = props;
+  const { value, totalValue, style, innerCircleStyle, outerCircleStyle, halfCircleStyle, showText, text, textStyle, showLabels, labelStyle, showPercent, percentStyle, percentOverride, showIndicator } = props;
 
-  const percentValue = parseInt(String((value * 100) / totalValue).split('.')[0]);
+  const percentValue = percentOverride ? percentOverride : parseInt(String((value * 100) / totalValue).split('.')[0])+"%";
   const degreesValue = (value > totalValue) ? totalValue : value;
   const degrees = ((degreesValue * 180) / ((totalValue === 0) ? 1 : totalValue)) - 90;
 
   const styles = getStyles(props, degrees, degreesValue);
 
   const percentElement = (showPercent) ? (
-    <Text style={[styles.percentText, percentStyle]} numberOfLines={1}>{percentValue}%</Text>
+    <Text style={[styles.percentText, percentStyle]} numberOfLines={1}>{percentValue}</Text>
   ) : null;
 
   const textElement = ((showText) && (text)) ? (
@@ -78,6 +78,7 @@ Speedometer.propTypes = {
     PropTypes.object,
     PropTypes.arrayOf(PropTypes.object),
   ]),
+  percentOverride: PropTypes.string,
   innerCircleStyle: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.arrayOf(PropTypes.object),
